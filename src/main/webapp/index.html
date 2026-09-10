@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Overview & Guide</title>
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-color: #2563eb;
+            --accent-hover: #1d4ed8;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-heading: #0f172a;
+            --border-color: #e2e8f0;
+            --code-bg: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: table;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+            float: left;
+        }
+
+        .nav-links {
+            float: right;
+            list-style: none;
+        }
+
+        .nav-links li {
+            display: inline-block;
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        /* Clearfix for nav float */
+        nav::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 5rem 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.75rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            padding: 0.75rem 1.75rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Content Sections */
+        section {
+            margin-bottom: 3.5rem;
+        }
+
+        h2 {
+            font-size: 1.85rem;
+            color: var(--text-heading);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        /* Lifecycle Phase Grid */
+        .grid {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            border-spacing: 1rem;
+            margin: 0 -1rem;
+        }
+
+        .card {
+            display: table-cell;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            vertical-align: top;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        /* Core Practices List */
+        .practices-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .practices-list li {
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 1rem 1.25rem;
+            margin-bottom: 0.75rem;
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            border-radius: 0 6px 6px 0;
+        }
+
+        .practices-list strong {
+            color: var(--text-heading);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Code / Tool Stack Block */
+        .code-box {
+            background-color: var(--code-bg);
+            color: #f8fafc;
+            padding: 1.25rem;
+            border-radius: 6px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.95rem;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Layout Tweaks */
+        @media (max-width: 768px) {
+            .grid, .card {
+                display: block;
+                width: 100%;
+                margin: 0 0 1rem 0;
+            }
+            .nav-links {
+                float: none;
+                margin-top: 1rem;
+            }
+            .nav-links li {
+                display: block;
+                margin: 0.5rem 0;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="logo">DevOps Portal</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#lifecycle">Lifecycle</a></li>
+                <li><a href="#practices">Practices</a></li>
+                <li><a href="#tools">Toolchain</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Understanding DevOps</h1>
+        <p>Bridging the gap between software development and IT operations to shorten lifecycle and deliver continuous quality.</p>
+        <a href="#about" class="btn">Learn More</a>
+    </div>
+
+    <div class="container">
+        
+        <section id="about">
+            <h2>What is DevOps?</h2>
+            <p>DevOps is a set of practices, cultural philosophies, and tools that combine software development (<strong>Dev</strong>) and information-technology operations (<strong>Ops</strong>). Its goal is to shorten the systems development life cycle and provide continuous delivery with high software quality.</p>
+            <p>Rather than working in isolated silos, engineering teams collaborate across the entire application lifecycle—from development and test to deployment and operations.</p>
+        </section>
+
+        <section id="lifecycle">
+            <h2>The DevOps Lifecycle</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>1. Plan & Code</h3>
+                    <p>Requirements, task tracking, continuous integration, and version control (e.g., Git) serve as the foundation for modern codebase management.</p>
+                </div>
+                <div class="card">
+                    <h3>2. Build & Test</h3>
+                    <p>Automated builds, unit tests, and integration test suites ensure software stability prior to production rollout.</p>
+                </div>
+                <div class="card">
+                    <h3>3. Deploy & Monitor</h3>
+                    <p>Continuous deployment pipelines release software updates seamlessly while real-time observability tracks application performance.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="practices">
+            <h2>Core Practices</h2>
+            <ul class="practices-list">
+                <li>
+                    <strong>Continuous Integration (CI)</strong>
+                    Developers regularly merge code changes into a central repository, after which automated builds and tests are run.
+                </li>
+                <li>
+                    <strong>Continuous Delivery (CD)</strong>
+                    Code changes are automatically built, tested, and prepared for release to production.
+                </li>
+                <li>
+                    <strong>Infrastructure as Code (IaC)</strong>
+                    Infrastructure is provisioned and managed using code and software development techniques, such as version control and continuous integration.
+                </li>
+                <li>
+                    <strong>Monitoring and Logging</strong>
+                    Organizations monitor metrics and logs to see how application and infrastructure performance impacts the user experience.
+                </li>
+            </ul>
+        </section>
+
+        <section id="tools">
+            <h2>Popular DevOps Toolchain</h2>
+            <p>A typical DevOps stack consists of tools across different functional areas:</p>
+            <div class="code-box">
+Version Control  : Git, GitHub, GitLab
+CI/CD            : Jenkins, GitHub Actions, GitLab CI, CircleCI
+Containerization : Docker, Podman
+Orchestration    : Kubernetes, Docker Swarm
+IaC              : Terraform, Ansible, CloudFormation
+Monitoring       : Prometheus, Grafana, ELK Stack
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 DevOps Static Guide. Created with pure HTML and CSS.</p>
+    </footer>
+
+</body>
+</html>
